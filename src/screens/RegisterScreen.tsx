@@ -60,27 +60,29 @@ export default function RegisterScreen() {
 
             </View>
 
+            <View style={styles.highlightBox}>
+                <FlatList
+                    data={users.filter(user =>
+                        `${user.name.first} ${user.name.last}`.toLowerCase().includes(searchText.toLowerCase())
+                    )}
 
-            <FlatList
-                data={users.filter(user =>
-                    `${user.name.first} ${user.name.last}`.toLowerCase().includes(searchText.toLowerCase())
-                )}
-
-                keyExtractor={(item, index) => index.toString()}
-                contentContainerStyle={styles.list}
-                renderItem={({ item }: { item: User }) => (
-                    <View style={styles.userCard}>
-                        <Image source={{ uri: item.picture.thumbnail }} style={styles.avatar} />
-                        <View>
-                            <Text style={styles.name}>
-                                {item.name.first} {item.name.last}
-                            </Text>
-                            <Text style={styles.phone}>{item.phone}</Text>
+                    keyExtractor={(item, index) => index.toString()}
+                    contentContainerStyle={styles.list}
+                    renderItem={({ item }: { item: User }) => (
+                        <View style={styles.userCard}>
+                            <Image source={{ uri: item.picture.thumbnail }} style={styles.avatar} />
+                            <View style={styles.userInfo}>
+                                <Text style={styles.name}>
+                                    {item.name.first} {item.name.last}
+                                </Text>
+                                <Text style={styles.phone}>{item.phone}</Text>
+                               
+                            </View>
                         </View>
-                    </View>
-                )}
-            />
 
+                    )}
+                />
+            </View>
 
             <TouchableOpacity style={styles.fab}>
                 <Text style={styles.fabText}>+</Text>
@@ -147,8 +149,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingVertical: 12,
-        borderBottomWidth: 0.6,
-        borderBottomColor: '#ccc',
+       
     },
     avatar: {
         width: 48,
@@ -232,6 +233,25 @@ const styles = StyleSheet.create({
     headerTitle: {
         fontSize: 24,
         color: '#fff',
+    },
+
+    highlightBox: {
+        backgroundColor: '#fff',
+        marginHorizontal: 16,
+        padding: 8,
+        borderColor: '#e0e0e0',
+    },
+
+    userInfo: {
+        flex: 1,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
+        paddingBottom: 12,
+    },
+    userLine: {
+        marginTop: 4,
+        borderBottomWidth: 1,
+        borderBottomColor: '#e0e0e0',
     },
 
 });

@@ -16,9 +16,9 @@ export default function HomeScreen() {
                     <Image source={require('../assets/location.png')} style={styles.location} />
                     <Text style={styles.idText}>A5874125</Text>
                 </View>
-
-                <Image source={require('../assets/home.png')} style={styles.image} />
-
+                <View style={styles.imageWrapper}>
+                    <Image source={require('../assets/home.png')} style={styles.image} />
+                </View>
                 <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Register')}
                 >
                     <View style={styles.cardContent}>
@@ -77,13 +77,19 @@ const styles = StyleSheet.create({
     },
 
 
-    image: {
+    imageWrapper: {
         width: '100%',
         height: 143,
         borderRadius: 20,
+        overflow: 'hidden',
         marginBottom: 30,
+    },
+
+    image: {
+        width: '100%',
+        height: 270,
         resizeMode: 'cover',
-        alignSelf: 'center',
+        marginTop: -100,
     },
 
     card: {
@@ -105,7 +111,7 @@ const styles = StyleSheet.create({
 
     cardBottomLine: {
         height: 11,
-        backgroundColor: 'rgba(246, 139, 31, 1)',
+        backgroundColor: '#F68B1F',
         width: '100%',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,

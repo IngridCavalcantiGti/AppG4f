@@ -25,7 +25,7 @@ type User = {
 };
 
 
-export default function CadastrosScreen() {
+export default function RegisterScreen() {
     const [users, setUsers] = useState<User[]>([]);
     const [searchText, setSearchText] = useState('');
 

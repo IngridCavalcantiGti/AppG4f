@@ -101,7 +101,7 @@ export default function HomeScreen() {
                         <View style={styles.cardBottomLine} />
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.card}>
+                    <TouchableOpacity style={styles.card} onPress={() => navigation.navigate('Organization')}>
                         <View style={styles.cardContent}>
                             <Image source={require('../assets/add.png')} style={styles.icon} />
                             <Text style={styles.cardText}>Consultar Organização</Text>

@@ -84,7 +84,7 @@ export default function RegisterScreen() {
                 />
             </View>
 
-            <TouchableOpacity style={styles.fab}>
+            <TouchableOpacity style={styles.fab}  onPress={() => navigation.navigate('RegisterClient')}>
                 <Text style={styles.fabText}>+</Text>
             </TouchableOpacity>
 

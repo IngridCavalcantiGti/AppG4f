@@ -35,6 +35,6 @@ describe('LoginScreen', () => {
     const button = getByText('ENTRAR');
     fireEvent.press(button);
 
-    expect(button).toBeTruthy(); 
+    expect(button).toBeTruthy();
   });
 });

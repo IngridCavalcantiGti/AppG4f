@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
   TextInput,
-  TouchableOpacity,
   FlatList,
   SafeAreaView,
   StatusBar,
-  Image
 } from 'react-native';
+
+import styles from './OrganizationScreen.styles';
 
 const mockOrgs = [
   { id: '1', name: 'Organização Alpha', city: 'Recife', state: 'PE' },
@@ -58,7 +57,7 @@ export default function OrganizationScreen() {
 
       <FlatList
         data={filtered}
-         keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item.id.toString()}
         renderItem={renderItem}
         style={styles.list}
         ListEmptyComponent={<Text style={styles.empty}>Nenhuma organização encontrada.</Text>}
@@ -66,52 +65,3 @@ export default function OrganizationScreen() {
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-    paddingTop: 20,
-    backgroundColor: '#F4F4F4',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: '700',
-    color: '#00492A',
-    marginBottom: 10,
-  },
-  input: {
-    backgroundColor: '#fff',
-    height: 50,
-    borderRadius: 10,
-    paddingHorizontal: 15,
-    fontSize: 16,
-    marginBottom: 20,
-    elevation: 2,
-  },
-  list: {
-    flex: 1,
-  },
-  card: {
-    backgroundColor: '#fff',
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 10,
-    elevation: 2,
-  },
-  cardTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: '#333',
-  },
-  cardSubtitle: {
-    fontSize: 14,
-    color: '#777',
-    marginTop: 4,
-  },
-  empty: {
-    textAlign: 'center',
-    color: '#999',
-    marginTop: 40,
-  },
-});

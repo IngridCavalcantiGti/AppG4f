@@ -1,11 +1,11 @@
 import React from 'react';
-import LoginScreen from './src/screens/LoginScreen';
+import LoginScreen from './src/screens/LoginScreen/LoginScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from './src/screens/HomeScreen';
-import RegisterScreen from './src/screens/RegisterScreen';
-import OrganizationScreen from './src/screens/OrganizationScreen';
-import RegisterClientScreen from './src/screens/RegisterClientScreen';
+import RegisterScreen from './src/screens/RegisterScreen/RegisterScreen';
+import OrganizationScreen from './src/screens/OrganizationScreen/OrganizationScreen';
+import RegisterClientScreen from './src/screens/RegisterClientScreen/RegisterClientScreen';
+import HomeScreen from './src/screens//HomeScreen/HomeScreen';
 
 export type RootStackParamList = {
   Login: undefined;

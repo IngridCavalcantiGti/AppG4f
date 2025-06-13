@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from './HomeScreen';
+import HomeScreen from '../../screens/HomeScreen/HomeScreen';
 
 jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native');
@@ -36,6 +36,6 @@ describe('HomeScreen', () => {
     const cadastroButton = getByText('Cadastros');
     fireEvent.press(cadastroButton);
 
-    expect(cadastroButton).toBeTruthy(); 
+    expect(cadastroButton).toBeTruthy();
   });
 });

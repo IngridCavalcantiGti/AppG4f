@@ -9,14 +9,10 @@ import {
 } from 'react-native';
 
 import styles from './OrganizationScreen.styles';
+import OrganizationCard from '../../components/OrganizationCard/OrganizationCard';
 
-const mockOrgs = [
-  { id: '1', name: 'Organização Alpha', city: 'Recife', state: 'PE' },
-  { id: '2', name: 'Beta Institute', city: 'Olinda', state: 'PE' },
-  { id: '3', name: 'ONG Gama', city: 'Jaboatão', state: 'PE' },
-  { id: '4', name: 'Shopping Costa dourada', city: 'Ipojuca', state: 'PE' },
-  { id: '5', name: 'CDF Pessoa', city: 'Caruaru', state: 'PE' },
-];
+import { mockOrgs } from '../../../__mocks__/organizations.mock';
+import BottomTab from '../../components/BottomTab/BottomTab';
 
 interface Organization {
   name: string;
@@ -37,10 +33,7 @@ export default function OrganizationScreen() {
   };
 
   const renderItem = ({ item }: { item: Organization }) => (
-    <View style={styles.card}>
-      <Text style={styles.cardTitle}>{item.name}</Text>
-      <Text style={styles.cardSubtitle}>{item.city}, {item.state}</Text>
-    </View>
+    <OrganizationCard name={item.name} city={item.city} state={item.state} />
   );
 
   return (
@@ -62,6 +55,8 @@ export default function OrganizationScreen() {
         style={styles.list}
         ListEmptyComponent={<Text style={styles.empty}>Nenhuma organização encontrada.</Text>}
       />
+
+       <BottomTab />
     </SafeAreaView>
   );
 }

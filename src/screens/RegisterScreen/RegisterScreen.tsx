@@ -12,6 +12,8 @@ import {
 } from 'react-native';
 import { RootStackParamList } from '../../../App';
 import styles from './RegisterScreen.styles';
+import BottomTab from '../../components/BottomTab/BottomTab';
+import UserCard from '../../components/UserCard/UserCard';
 
 type User = {
     picture: {
@@ -68,16 +70,11 @@ export default function RegisterScreen() {
                     keyExtractor={(item, index) => index.toString()}
                     contentContainerStyle={styles.list}
                     renderItem={({ item }: { item: User }) => (
-                        <View style={styles.userCard}>
-                            <Image source={{ uri: item.picture.thumbnail }} style={styles.avatar} />
-                            <View style={styles.userInfo}>
-                                <Text style={styles.name}>
-                                    {item.name.first} {item.name.last}
-                                </Text>
-                                <Text style={styles.phone}>{item.phone}</Text>
-                               
-                            </View>
-                        </View>
+                      <UserCard
+                     name={`${item.name.first} ${item.name.last}`}
+                    phone={item.phone}
+                    avatarUrl={item.picture.thumbnail}
+                    />
 
                     )}
                 />
@@ -86,27 +83,11 @@ export default function RegisterScreen() {
             <TouchableOpacity style={styles.fab}  onPress={() => navigation.navigate('RegisterClient')}>
                 <Text style={styles.fabText}>+</Text>
             </TouchableOpacity>
-
-            <View style={styles.bottomTab}>
-                <TouchableOpacity style={styles.tabItem}>
-                    <Image source={require('../../assets/phone.png')} style={styles.tabIcon} />
-
-                    <Text style={styles.tabText}>ITEM 1</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.tabItem}>
-                    <Image source={require('../../assets/account.png')} style={styles.tabIcon} />
-                    <Text style={[styles.tabText, styles.activeTab]}>ITEM 2</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.tabItem}>
-                    <Image source={require('../../assets/favorite.png')} style={styles.tabIcon} />
-                    <Text style={styles.tabText}>ITEM 3</Text>
-                </TouchableOpacity>
-            </View>
+           <BottomTab />
         </>
     );
 }
 
-// const styles = StyleSheet.create({
 //     header: {
 //         backgroundColor: '#00492A',
 //         paddingVertical: 14,

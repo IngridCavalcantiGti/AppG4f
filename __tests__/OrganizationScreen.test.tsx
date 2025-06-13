@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
-import OrganizationScreen from './OrganizationScreen';
+import OrganizationScreen from '../src/screens/OrganizationScreen/OrganizationScreen';
 
 describe('OrganizationScreen', () => {
   it('should render the full organization list initially', () => {

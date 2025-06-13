@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import '@testing-library/jest-native/extend-expect'; // importante
-import RegisterClientScreen from './RegisterClientScreen';
+import RegisterClientScreen from '../src/screens/RegisterClientScreen/RegisterClientScreen';
 
 describe('RegisterClientScreen', () => {
   it('renders the title and inputs', () => {

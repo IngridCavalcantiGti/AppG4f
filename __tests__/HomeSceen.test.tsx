@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from '../../screens/HomeScreen/HomeScreen';
+import HomeScreen from '../src/screens/HomeScreen/HomeScreen';
 
 jest.mock('@react-navigation/native', () => {
   const actualNav = jest.requireActual('@react-navigation/native');
